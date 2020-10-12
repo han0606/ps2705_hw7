@@ -1,8 +1,8 @@
 # PS2705 HW6 Jungmin Han
 
 # Final 
-website.html: article.md
-	pandoc article.md -s --mathjax -f markdown+tex_math_dollars --metadata title="PS2705: Homework 6 (Jungmin Han)" -o website.html
+All: article.md
+	pandoc article.md -s --mathjax -f markdown+tex_math_dollars --metadata title="PS2705: Homework 6 (Jungmin Han)" -o website.html | pandoc article.md -t latex -o content.pdf
 
 # Markdown File
 article.md: preamble.txt litReview_size.txt approach.txt results.txt conclusion.txt
@@ -14,4 +14,4 @@ litReview_size.txt: litReview.txt
 
 # Clean
 clean:
-	rm -f litReview_size.txt website.html article.md
+	rm -f litReview_size.txt website.html article.md content.pdf
